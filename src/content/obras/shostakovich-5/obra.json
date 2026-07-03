@@ -12,19 +12,19 @@
   "vida": { "desde": 1906, "hasta": 1975 },
   "escenas": [
     { "tipo": "intertitulo", "texto": "Moscú, 26 de enero de 1936.\nStalin va a la ópera.",
-      "fondo": { "src": "bolshoi.jpg", "kenburns": "zoom-in", "credito": "RELLENAR_TASK3" }, "duracionCine": 8 },
+      "fondo": { "src": "bolshoi.jpg", "kenburns": "zoom-in", "credito": "Autor desconocido — Dominio público, vía Wikimedia Commons" }, "duracionCine": 8 },
     { "tipo": "narrativa", "texto": "Lady Macbeth de Mtsensk llevaba dos años triunfando cuando Stalin fue a verla. Salió del teatro antes del final, indignado. Dos días después, Pravda publicó un editorial sin firma: «Caos en lugar de música». En la Unión Soviética de 1936, aquello no era una crítica: era una sentencia de muerte diferida.",
-      "fondo": { "src": "pravda.jpg", "kenburns": "pan-der", "credito": "RELLENAR_TASK3" }, "duracionCine": 16 },
+      "fondo": { "src": "pravda.jpg", "kenburns": "pan-der", "credito": "Huydang2910 — Dominio público, vía Wikimedia Commons" }, "duracionCine": 16 },
     { "tipo": "narrativa", "texto": "Empezaron las purgas. Amigos, mecenas y colegas de Shostakóvich desaparecían de noche. Él dormía vestido, con una maleta hecha junto a la puerta, para que el NKVD no despertara a sus hijos cuando vinieran a por él.",
-      "fondo": { "src": "shostakovich-retrato.jpg", "kenburns": "zoom-out", "credito": "RELLENAR_TASK3" }, "duracionCine": 14 },
+      "fondo": { "src": "shostakovich-retrato.jpg", "kenburns": "zoom-out", "credito": "Autor desconocido — Dominio público, vía Wikimedia Commons" }, "duracionCine": 14 },
     { "tipo": "cita", "texto": "Respuesta de un artista soviético a una crítica justa.", "atribucion": "Subtítulo de la Quinta Sinfonía — ¿sumisión o sarcasmo? El debate sigue abierto.",
-      "fondo": { "src": "partitura.jpg", "kenburns": "zoom-in", "credito": "RELLENAR_TASK3" }, "duracionCine": 10 },
+      "fondo": { "src": "partitura.jpg", "kenburns": "zoom-in", "credito": "Главархив Москвы — CC BY 4.0, vía Wikimedia Commons" }, "duracionCine": 10 },
     { "tipo": "narrativa", "texto": "21 de noviembre de 1937, Leningrado. El público entendió lo que la censura no supo leer: hubo quien lloró en el tercer movimiento, y la ovación duró más de media hora. Aquella gente había perdido a alguien. La sinfonía lo decía sin decirlo.",
-      "fondo": { "src": "filarmonica.jpg", "kenburns": "zoom-in", "credito": "RELLENAR_TASK3" }, "duracionCine": 14 },
+      "fondo": { "src": "filarmonica.jpg", "kenburns": "zoom-in", "credito": "Александровы АГ — CC BY-SA 4.0, vía Wikimedia Commons" }, "duracionCine": 14 },
     { "tipo": "escucha", "texto": "El final: un júbilo a punta de pistola. Escucha los timbales martilleando la misma nota, un «la» repetido cuarenta veces, como una celebración obligatoria. ¿Triunfo del socialismo o su parodia exacta?", "timestamp": 2698,
-      "fondo": { "src": "desfile.jpg", "kenburns": "pan-izq", "credito": "RELLENAR_TASK3" }, "duracionCine": 20 },
+      "fondo": { "src": "desfile.jpg", "kenburns": "pan-izq", "credito": "Sovfoto, Nueva York (transferencia US Office of War Information, 1944) — Dominio público, vía Wikimedia Commons" }, "duracionCine": 20 },
     { "tipo": "narrativa", "texto": "Shostakóvich sobrevivió. Y desde entonces firmó sus obras por dentro: el motivo D-Es-C-H —sus iniciales en notación alemana— escondido en la música, una firma que la censura nunca supo escuchar.",
-      "fondo": { "src": "dsch.jpg", "kenburns": "zoom-out", "credito": "RELLENAR_TASK3" }, "duracionCine": 12 }
+      "fondo": { "src": "dsch.jpg", "kenburns": "zoom-out", "credito": "Henry Flower (en.wikipedia) — Dominio público, vía Wikimedia Commons" }, "duracionCine": 12 }
   ],
   "cierre": {
     "grabaciones": ["Bernstein / Filarmónica de Nueva York (1959) — grabación principal", "Mravinsky / Filarmónica de Leningrado — la referencia histórica"],
