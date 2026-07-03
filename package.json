@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.3",
+    "playwright": "^1.61.1",
     "vitest": "^4.1.9"
   }
 }

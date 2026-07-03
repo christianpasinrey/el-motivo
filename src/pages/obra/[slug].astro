@@ -76,3 +76,11 @@ const ldjson = JSON.stringify({
   .cierre .siguiente { display: grid; gap: 0.3rem; margin: 1.5rem 0; text-decoration: none; }
   .cierre .siguiente strong { font-family: var(--fuente-display); font-size: 1.5rem; color: var(--acento); }
 </style>
+<style is:global>
+  body.modo-cine #boton-cine { opacity: 0.25; }
+  body.modo-cine #linea-vida, body.modo-cine .credito { opacity: 0; transition: opacity 1s; }
+</style>
+<script>
+  import { initDirector } from '../../scripts/director';
+  initDirector();
+</script>
