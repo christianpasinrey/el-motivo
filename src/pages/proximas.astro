@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import candidatas from '../../data/candidatas.json';
+const REPO = 'https://github.com/christianpasinrey/el-motivo';
+const base = import.meta.env.BASE_URL;
+function urlVoto(obra: string, compositor: string) {
+  const titulo = encodeURIComponent(`Voto: ${obra} — ${compositor}`);
+  const cuerpo = encodeURIComponent('Quiero que la próxima experiencia sea esta obra. (Puedes añadir por qué, o proponer otra.)');
+  return `${REPO}/issues/new?title=${titulo}&body=${cuerpo}`;
+}
+---
+<Base titulo="Próximas obras" descripcion="Vota qué historia contamos después.">
+  <main class="proximas">
+    <a class="ui" href={base}>← Cartelera</a>
+    <h1>¿Qué historia contamos después?</h1>
+    <p>Vota abriendo una petición en GitHub (un clic) o propón otra obra.</p>
+    <ul>
+      {candidatas.sort((a, b) => b.votos - a.votos).map((c) => (
+        <li>
+          <div><strong>{c.obra}</strong> <span class="ui">{c.compositor}</span><p class="gancho">{c.gancho}</p></div>
+          <a class="votar ui" href={urlVoto(c.obra, c.compositor)} rel="noopener" target="_blank">Votar · {c.votos}</a>
+        </li>
+      ))}
+    </ul>
+  </main>
+</Base>
+<style>
+  .proximas { max-width: 46rem; margin: 0 auto; padding: 14vh 1.5rem 6rem; display: grid; gap: 1.4rem; }
+  .proximas ul { list-style: none; display: grid; gap: 1.2rem; }
+  .proximas li { display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    border-bottom: 1px solid #f2ede422; padding-bottom: 1.2rem; }
+  .gancho { font-style: italic; opacity: 0.75; font-size: 1rem; }
+  .votar { border: 1px solid var(--acento); border-radius: 2rem; padding: 0.5rem 1rem; text-decoration: none; white-space: nowrap; }
+</style>
