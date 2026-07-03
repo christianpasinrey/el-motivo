@@ -1,0 +1,33 @@
+{
+  "slug": "sinfonia-fantastica",
+  "orden": 3,
+  "titulo": "Sinfonía Fantástica",
+  "compositor": "Hector Berlioz",
+  "año": 1830,
+  "lugar": "París",
+  "gancho": "El delirio que se convirtió en sinfonía",
+  "cartel": "cartel.jpg",
+  "youtube": { "videoId": "AgXW-57UDMc", "videoIdAlternativos": ["D-QHwi0f3cI"], "grabacion": "Andrés Orozco-Estrada · hr-Sinfonieorchester / Frankfurt Radio Symphony (2014)" },
+  "paleta": { "acento": "#6e4a7e" },
+  "vida": { "desde": 1803, "hasta": 1869 },
+  "escenas": [
+    { "tipo": "intertitulo", "texto": "París, 1827.\nBerlioz ve Hamlet.",
+      "fondo": { "src": "odeon-paris.jpg", "kenburns": "zoom-in", "credito": "François Courboin — Dominio público, vía Wikimedia Commons" }, "duracionCine": 8 },
+    { "tipo": "narrativa", "texto": "En el Théâtre de l'Odéon, una compañía inglesa representa Hamlet. Harriet Smithson interpreta a Ofelia y Berlioz, de veintitrés años, queda fascinado. Le escribe cartas que ella nunca responde, la sigue por París, alquila un piso frente al suyo. Durante tres años la obsesión no cede: ella apenas sabe que existe.",
+      "fondo": { "src": "smithson-ofelia.jpg", "kenburns": "pan-der", "credito": "Autor desconocido — Dominio público, vía Wikimedia Commons" }, "duracionCine": 15 },
+    { "tipo": "narrativa", "texto": "Berlioz vuelca la obsesión en una sinfonía: un joven artista, hundido en la desesperación amorosa, se envenena con opio en una dosis insuficiente para matarlo y cae en un sueño poblado de imágenes extrañas, donde la amada se transforma en una melodía que lo persigue por todas partes, sin descanso.",
+      "fondo": { "src": "fuseli-pesadilla.jpg", "kenburns": "zoom-out", "credito": "Henry Fuseli — Dominio público, vía Wikimedia Commons" }, "duracionCine": 15 },
+    { "tipo": "escucha", "texto": "Escucha la idée fixe: el tema de la amada, expuesto por la flauta y el violín tras una larga introducción. Berlioz la hace reaparecer en los cinco movimientos, siempre reconocible y siempre transformada — la obsesión convertida en método compositivo, la mujer real convertida en una melodía que no lo suelta.", "timestamp": 350,
+      "fondo": { "src": "smithson-retrato.jpg", "kenburns": "pan-izq", "credito": "Claude-Marie Dubufe — Dominio público, vía Wikimedia Commons" }, "duracionCine": 19 },
+    { "tipo": "escucha", "texto": "Escucha la Marcha al cadalso: el artista sueña que ha matado a su amada y camina hacia la ejecución. Un clarinete solista recuerda la idée fixe un último instante — el pensamiento del amor, interrumpido en seco por un acorde brutal de toda la orquesta y el pizzicato que imita la cabeza al caer.", "timestamp": 2797,
+      "fondo": { "src": "guillotina.jpg", "kenburns": "zoom-in", "credito": "Anónimo, grabador — CC0, vía Wikimedia Commons" }, "duracionCine": 20 },
+    { "tipo": "escucha", "texto": "Escucha el aquelarre final: la amada regresa convertida en bruja, la idée fixe deformada en una melodía grotesca de clarinete agudo. Campanas fúnebres anuncian el Dies irae, el canto de difuntos medieval, que tubas y fagotes entonan antes de que la orquesta entera lo arrastre a una danza infernal.", "timestamp": 3020,
+      "fondo": { "src": "goya-aquelarre.jpg", "kenburns": "pan-der", "credito": "Francisco Goya — Dominio público, vía Wikimedia Commons" }, "duracionCine": 20 },
+    { "tipo": "narrativa", "texto": "Harriet Smithson acaba enterándose de la sinfonía que inspiró y, años después, conoce por fin a Berlioz. Se casan en 1833. La obsesión que dio origen a una obra maestra no sobrevive al matrimonio real: se separan pocos años después, y Berlioz pasa el resto de su vida lejos de la mujer que inspiró la idée fixe.",
+      "fondo": { "src": "smithson-berlioz.jpg", "kenburns": "zoom-out", "credito": "Eugène Devéria — Dominio público, vía Wikimedia Commons" }, "duracionCine": 16 }
+  ],
+  "cierre": {
+    "grabaciones": ["Andrés Orozco-Estrada / hr-Sinfonieorchester (2014) — grabación principal", "Charles Munch / Boston Symphony Orchestra (1954) — la referencia histórica"],
+    "siguiente": "la-campanella"
+  }
+}
