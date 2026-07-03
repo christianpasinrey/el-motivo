@@ -5,9 +5,11 @@ import { emitir } from '../lib/bus';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-const KENBURNS: Record<string, gsap.TweenVars> = {
-  'zoom-in': { scale: 1.05 }, 'zoom-out': { scale: 1 },
-  'pan-izq': { xPercent: -2.5, scale: 1.04 }, 'pan-der': { xPercent: 2.5, scale: 1.04 },
+const KENBURNS: Record<string, { desde: gsap.TweenVars; hasta: gsap.TweenVars }> = {
+  'zoom-in':  { desde: { scale: 1 },                 hasta: { scale: 1.05 } },
+  'zoom-out': { desde: { scale: 1.05 },              hasta: { scale: 1 } },
+  'pan-izq':  { desde: { xPercent: 0, scale: 1.04 }, hasta: { xPercent: -2.5, scale: 1.04 } },
+  'pan-der':  { desde: { xPercent: 0, scale: 1.04 }, hasta: { xPercent: 2.5, scale: 1.04 } },
 };
 
 export function initDirector(): void {
@@ -40,8 +42,9 @@ export function initDirector(): void {
         autoAlpha: 1, duration: 1.6, ease: 'none',
         scrollTrigger: { trigger: escena, start: 'top 85%', end: 'top 35%', scrub: true },
       });
-      gsap.to(fondo.querySelector('img'), {
-        ...KENBURNS[escena.dataset.kenburns ?? 'zoom-in'], duration: 20, ease: 'none',
+      const kb = KENBURNS[escena.dataset.kenburns ?? 'zoom-in'];
+      gsap.fromTo(fondo.querySelector('img'), kb.desde, {
+        ...kb.hasta, duration: 20, ease: 'none',
         scrollTrigger: { trigger: escena, start: 'top bottom', end: 'bottom top', scrub: true },
       });
       gsap.from(contenido, {
