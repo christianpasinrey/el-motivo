@@ -1,0 +1,32 @@
+{
+  "slug": "eroica",
+  "orden": 2,
+  "titulo": "Sinfonía nº 3, «Eroica»",
+  "compositor": "Ludwig van Beethoven",
+  "año": 1804,
+  "lugar": "Viena",
+  "gancho": "La dedicatoria que Beethoven arrancó a cuchillo",
+  "cartel": "cartel.jpg",
+  "youtube": { "videoId": "dTbesxdLwo8", "videoIdAlternativos": ["JD3q2cLf8D8"], "grabacion": "Herbert von Karajan · Filarmónica de Berlín (1977)" },
+  "paleta": { "acento": "#b08d3e" },
+  "vida": { "desde": 1770, "hasta": 1827 },
+  "escenas": [
+    { "tipo": "intertitulo", "texto": "Viena, 1804.\nLa sinfonía se llama «Bonaparte».",
+      "fondo": { "src": "kohlmarkt.jpg", "kenburns": "zoom-in", "credito": "Carl Schütz — Dominio público, vía Wikimedia Commons" }, "duracionCine": 8 },
+    { "tipo": "narrativa", "texto": "Beethoven ve en Napoleón la encarnación de los ideales de la Revolución: un hombre nacido sin título que ha puesto fin al privilegio de sangre. Compone una sinfonía a su medida, más larga y más audaz que cualquier otra escrita hasta entonces, y ordena copiar la partitura con una portada que lleva, en el centro, un solo nombre: Bonaparte.",
+      "fondo": { "src": "napoleon-consul.jpg", "kenburns": "pan-der", "credito": "Autor desconocido — Dominio público, vía Wikimedia Commons" }, "duracionCine": 14 },
+    { "tipo": "narrativa", "texto": "Llega la noticia: Napoleón se ha proclamado emperador. Beethoven coge la partitura, busca el nombre en la portada y lo raspa con tanta furia que el cuchillo atraviesa el papel y abre un agujero. Aquella copia, con la herida todavía visible, se conserva hoy en la Gesellschaft der Musikfreunde de Viena.",
+      "fondo": { "src": "portada-raspada.jpg", "kenburns": "zoom-out", "credito": "Autor desconocido — Dominio público, vía Wikimedia Commons" }, "duracionCine": 13 },
+    { "tipo": "cita", "texto": "¡No es más que un hombre vulgar! Ahora pisoteará los derechos de los hombres para servir a su ambición.",
+      "atribucion": "Según el relato de su discípulo Ferdinand Ries, la reacción de Beethoven al saber que Napoleón se había coronado emperador.",
+      "fondo": { "src": "coronacion.jpg", "kenburns": "pan-izq", "credito": "Jacques-Louis David / Georges Rouget — Dominio público, vía Wikimedia Commons" }, "duracionCine": 10 },
+    { "tipo": "escucha", "texto": "Escucha la Marcia funebre, el segundo movimiento: un cortejo en do menor que avanza a paso muy lento, con los timbales marcando cada compás como tierra removida sobre una tumba. En su centro, una fuga breve tensa el dolor antes de que el tema vuelva, esta vez quebrado, incapaz de terminar la frase entera.", "timestamp": 808,
+      "fondo": { "src": "heroes-caidos.jpg", "kenburns": "zoom-in", "credito": "Anne-Louis Girodet — Dominio público, vía Wikimedia Commons" }, "duracionCine": 19 },
+    { "tipo": "narrativa", "texto": "La obra se publica en 1806 bajo un nuevo título: «Sinfonía heroica, compuesta para celebrar la memoria de un gran hombre». Dura casi el doble que cualquier sinfonía anterior de Haydn o Mozart, y exige a la orquesta una intensidad desconocida hasta entonces. El molde clásico, hecho para la elegancia cortesana, se queda pequeño.",
+      "fondo": { "src": "teatro-wien.jpg", "kenburns": "pan-der", "credito": "Jakob Alt (1789–1872) — Dominio público, vía Wikimedia Commons" }, "duracionCine": 14 }
+  ],
+  "cierre": {
+    "grabaciones": ["Herbert von Karajan / Filarmónica de Berlín (1977) — grabación principal", "Wilhelm Furtwängler / Filarmónica de Viena (1944) — la referencia histórica"],
+    "siguiente": "sinfonia-fantastica"
+  }
+}
