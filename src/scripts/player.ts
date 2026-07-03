@@ -20,6 +20,7 @@ export function initPlayer(): void {
   }
 
   function sinAudio() {
+    player = null;
     document.body.classList.add('sin-audio');
     vinilo.innerHTML = '<p class="ui" style="font-size:.6rem;opacity:.6">Audio no disponible en tu región — la historia continúa</p>';
   }
@@ -33,7 +34,11 @@ export function initPlayer(): void {
       videoId: ids[intento], width: 120, height: 120,
       playerVars: { autoplay: 1, controls: 0, rel: 0, playsinline: 1 },
       events: {
-        onError: () => { intento++; player.destroy(); crear(); },
+        onError: (e: any) => {
+          player.destroy();
+          if ([100, 101, 150].includes(e.data)) { intento++; crear(); }
+          else { player = null; sinAudio(); }
+        },
         onStateChange: (e: any) => {
           const sonando = e.data === window.YT.PlayerState.PLAYING;
           vinilo.classList.toggle('girando', sonando);
