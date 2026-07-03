@@ -1,0 +1,31 @@
+{
+  "slug": "requiem-mozart",
+  "orden": 5,
+  "titulo": "Réquiem en re menor",
+  "compositor": "W. A. Mozart",
+  "año": 1791,
+  "lugar": "Viena",
+  "gancho": "El encargo anónimo que Mozart creyó su propio funeral",
+  "cartel": "cartel.jpg",
+  "youtube": { "videoId": "54h8TxJyNy0", "videoIdAlternativos": ["63jv0JcDNUg"], "grabacion": "Bartosz Michałowski · Sinfonia Iuventus & Coro Filarmónico de Varsovia (Varsovia, 2019)" },
+  "paleta": { "acento": "#9aa5b1" },
+  "vida": { "desde": 1756, "hasta": 1791 },
+  "escenas": [
+    { "tipo": "intertitulo", "texto": "Viena, verano de 1791.\nUn mensajero que no dice su nombre.",
+      "fondo": { "src": "viena-mapa.jpg", "kenburns": "zoom-in", "credito": "Autor desconocido — Dominio público, vía Wikimedia Commons" }, "duracionCine": 8 },
+    { "tipo": "narrativa", "texto": "Un mensajero visita a Mozart en Viena con un encargo insólito: una misa de réquiem, bien pagada por adelantado. La condición es una sola —no preguntar quién la encarga—. Mozart necesita el dinero: las deudas se acumulan desde hace años. Acepta el trato sin hacer preguntas, aunque el secreto en torno al comitente le resulta extraño.",
+      "fondo": { "src": "viena-parada.jpg", "kenburns": "pan-der", "credito": "Franz Joseph Stanka — Dominio público, vía Wikimedia Commons" }, "duracionCine": 14 },
+    { "tipo": "narrativa", "texto": "A medida que compone, Mozart enferma. La fiebre y la hinchazón lo debilitan, pero sigue escribiendo. Empieza a convencerse de que la misa no es para un desconocido: la escribe para sí mismo, que su propia muerte se acerca y que este réquiem sonará en su propio funeral. Trabaja febrilmente, como si completarlo fuera una carrera contra el tiempo.",
+      "fondo": { "src": "mozart-enfermo.jpg", "kenburns": "zoom-out", "credito": "Mihály Munkácsy / Charles Sedelmeyer — CC0, vía Wikimedia Commons" }, "duracionCine": 15 },
+    { "tipo": "escucha", "texto": "Escucha el Lacrimosa. El manuscrito que Mozart dejó escrito con su propia mano se corta en el compás 8: después de esas ocho líneas de música, no hay ni una nota más trazada por él. Lo que sigue, hasta el final del movimiento, tuvo que completarlo otra mano.", "timestamp": 1379,
+      "fondo": { "src": "manuscrito-lacrimosa.jpg", "kenburns": "pan-izq", "credito": "Desconocido — Dominio público, vía Wikimedia Commons" }, "duracionCine": 19 },
+    { "tipo": "narrativa", "texto": "Mozart muere el 5 de diciembre de 1791, con el réquiem sin terminar. Constanze necesita entregar la obra completa para cobrar el encargo, así que recurre a Franz Xaver Süssmayr, alumno de Mozart, para que la termine. Süssmayr completa las partes que faltan e imita la letra de Mozart en el manuscrito, de modo que nadie note dónde acaba un compositor y empieza el otro.",
+      "fondo": { "src": "constanze.jpg", "kenburns": "zoom-in", "credito": "Joseph Lange — Dominio público, vía Wikimedia Commons" }, "duracionCine": 16 },
+    { "tipo": "narrativa", "texto": "El misterio del mensajero anónimo tenía una explicación prosaica. El conde Franz von Walsegg encargaba obras a compositores para copiarlas de su puño y letra y hacerlas pasar por propias ante sus invitados. Ese año había enviudado, y quería un réquiem que pudiera firmar como suyo en memoria de su esposa. El anonimato no escondía una conspiración: escondía un plagio de salón.",
+      "fondo": { "src": "schloss-stuppach.jpg", "kenburns": "pan-der", "credito": "Gloj1 — CC BY-SA 3.0, vía Wikimedia Commons" }, "duracionCine": 15 }
+  ],
+  "cierre": {
+    "grabaciones": ["Bartosz Michałowski / Sinfonia Iuventus & Coro Filarmónico de Varsovia (2019) — grabación principal", "John Eliot Gardiner / English Baroque Soloists & Monteverdi Choir — la referencia histórica"],
+    "siguiente": "los-adioses"
+  }
+}
