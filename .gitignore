@@ -8,6 +8,12 @@ pnpm-debug.log
 dist/
 build/
 
+# playwright
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
 # astro
 .astro/
 
