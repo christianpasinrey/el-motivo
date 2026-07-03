@@ -1,0 +1,29 @@
+{
+  "slug": "los-adioses",
+  "orden": 6,
+  "titulo": "Sinfonía nº 45, «Los Adioses»",
+  "compositor": "Joseph Haydn",
+  "año": 1772,
+  "lugar": "Esterháza",
+  "gancho": "La reivindicación laboral más elegante de la historia",
+  "cartel": "cartel.jpg",
+  "youtube": { "videoId": "S-5BTwiWFOg", "videoIdAlternativos": ["GMaM6ivx8X8"], "grabacion": "Austro-Hungarian Haydn Orchestra · Ádám Fischer (Brilliant Classics)" },
+  "paleta": { "acento": "#d9a441" },
+  "vida": { "desde": 1732, "hasta": 1809 },
+  "escenas": [
+    { "tipo": "intertitulo", "texto": "Palacio de Esterháza,\notoño de 1772.",
+      "fondo": { "src": "palacio-esterhaza.jpg", "kenburns": "zoom-in", "credito": "Autor desconocido (grabado, 1791) — Dominio público, vía Wikimedia Commons" }, "duracionCine": 8 },
+    { "tipo": "narrativa", "texto": "Cada verano, el príncipe Nikolaus Esterházy traslada su corte al palacio de Esterháza. En 1772 la temporada se alarga más de lo habitual: los músicos de su orquesta llevan meses lejos de Viena, separados de esposas e hijos, sin fecha de regreso. Son empleados de un príncipe todopoderoso. Quejarse abiertamente es, sencillamente, impensable.",
+      "fondo": { "src": "nikolaus-esterhazy.jpg", "kenburns": "pan-der", "credito": "Martin Knoller — Dominio público, vía Wikimedia Commons" }, "duracionCine": 14 },
+    { "tipo": "narrativa", "texto": "Haydn, maestro de capilla, decide hablar por sus músicos sin dirigirle una sola palabra al príncipe. Compone un finale insólito: uno a uno, los instrumentistas terminan su parte, apagan la vela de su atril y abandonan el escenario en plena interpretación. Al final del movimiento solo quedan dos violines, tocando casi a oscuras.",
+      "fondo": { "src": "haydn-guttenbrunn.jpg", "kenburns": "zoom-out", "credito": "Ludwig Guttenbrunn — Dominio público, vía Wikimedia Commons" }, "duracionCine": 15 },
+    { "tipo": "escucha", "texto": "Escucha el final de la Sinfonía nº 45. El Presto da paso a un Adagio inesperado: cada músico, tras su último compás, apaga su vela y sale de escena. Oboes, trompas, fagot, contrabajo, viola —la orquesta se vacía instrumento a instrumento, hasta que solo quedan dos violines terminando la obra casi en silencio.", "timestamp": 1284,
+      "fondo": { "src": "partitura-45.jpg", "kenburns": "pan-izq", "credito": "Joseph Haydn / Österreichische Nationalbibliothek — Dominio público, vía Wikimedia Commons" }, "duracionCine": 19 },
+    { "tipo": "narrativa", "texto": "El príncipe Esterházy entiende el mensaje a la primera. Al día siguiente de aquel concierto ordena el regreso a Viena: los músicos vuelven junto a sus familias. Sin una queja pronunciada ni una nota fuera de la partitura, Haydn consiguió lo que ningún memorial se habría atrevido a pedir. La protesta laboral más elegante jamás compuesta, y funcionó.",
+      "fondo": { "src": "esterhaza-grabado.jpg", "kenburns": "zoom-in", "credito": "Autor desconocido (grabado, s. XVIII) — Dominio público, vía Wikimedia Commons" }, "duracionCine": 16 }
+  ],
+  "cierre": {
+    "grabaciones": ["Austro-Hungarian Haydn Orchestra / Ádám Fischer (Brilliant Classics) — grabación principal", "Il Giardino Armonico / Giovanni Antonini (Haydn2032, instrumentos históricos) — la referencia histórica"],
+    "siguiente": "ofrenda-musical"
+  }
+}
