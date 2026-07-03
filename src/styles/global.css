@@ -1,0 +1,24 @@
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/literata';
+@import '@fontsource/archivo-narrow/400.css';
+@import '@fontsource/archivo-narrow/500.css';
+
+:root {
+  --negro: #0a0a0a;
+  --marfil: #f2ede4;
+  --acento: #f2ede4; /* neutro; cada obra lo sobrescribe */
+  --fuente-display: 'Fraunces Variable', serif;
+  --fuente-texto: 'Literata Variable', serif;
+  --fuente-ui: 'Archivo Narrow', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { background: var(--negro); color: var(--marfil); scroll-behavior: smooth; }
+body { font-family: var(--fuente-texto); font-size: 1.25rem; line-height: 1.7; }
+h1, h2, h3 { font-family: var(--fuente-display); font-weight: 560; letter-spacing: -0.01em; }
+.ui { font-family: var(--fuente-ui); text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.78rem; }
+a { color: inherit; }
+::selection { background: var(--acento); color: var(--negro); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
