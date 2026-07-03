@@ -1,0 +1,78 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Escena from '../../components/escena/Escena.astro';
+
+export async function getStaticPaths() {
+  return (await getCollection('obras')).map((o) => ({ params: { slug: o.data.slug } }));
+}
+const entrada = await getEntry('obras', Astro.params.slug);
+if (!entrada) return Astro.redirect(import.meta.env.BASE_URL);
+const obra = entrada.data;
+const imagenes = import.meta.glob<{ default: ImageMetadata }>('/src/assets/obras/**/*.{jpg,png,webp}');
+async function img(archivo: string) {
+  return (await imagenes[`/src/assets/obras/${obra.slug}/${archivo}`]()).default;
+}
+const siguiente = await getEntry('obras', obra.cierre.siguiente);
+const base = import.meta.env.BASE_URL;
+const ldjson = JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'Article',
+  headline: `${obra.titulo} — ${obra.gancho}`, inLanguage: 'es',
+  about: { '@type': 'MusicComposition', name: obra.titulo, composer: { '@type': 'Person', name: obra.compositor } },
+});
+---
+<Base titulo={`${obra.titulo} · ${obra.compositor}`} descripcion={obra.gancho} acento={obra.paleta.acento}>
+  <script type="application/ld+json" set:html={ldjson} />
+  <main id="experiencia" data-acento={obra.paleta.acento} data-video-id={obra.youtube.videoId}
+    data-alternativos={obra.youtube.videoIdAlternativos.join(',')}
+    data-vida-desde={obra.vida.desde} data-vida-hasta={obra.vida.hasta}>
+
+    <div id="rito">
+      <p class="ui">{obra.compositor} · {obra.lugar}, {obra.año}</p>
+      <h1>{obra.titulo}</h1>
+      <p class="gancho">{obra.gancho}</p>
+      <button id="entrar"><span class="ui">▶ Entrar</span></button>
+      <a class="ui volver" href={base}>← Cartelera</a>
+    </div>
+
+    <canvas id="lienzo-generativo" aria-hidden="true"></canvas>
+    <div id="linea-vida" aria-hidden="true"><span id="año-vida" class="ui">{obra.vida.desde}</span><div id="marcador"></div></div>
+    <button id="boton-cine" class="ui" hidden>Modo cine</button>
+    <div id="vinilo" hidden><div id="funda"></div></div>
+
+    {await Promise.all(obra.escenas.map(async (e, i) => (
+      <Escena escena={e} indice={i} imagen={await img(e.fondo.src)} />
+    )))}
+
+    <footer class="cierre">
+      <h2>Ficha</h2>
+      <ul>{obra.cierre.grabaciones.map((g) => <li>{g}</li>)}</ul>
+      <p class="ui">Grabación de esta experiencia: {obra.youtube.grabacion}</p>
+      {siguiente && <a class="siguiente" href={`${base}obra/${siguiente.data.slug}/`}>
+        <span class="ui">Si te ha atrapado esta…</span>
+        <strong>{siguiente.data.titulo} — {siguiente.data.compositor}</strong>
+      </a>}
+      <a class="ui" href={`${base}proximas/`}>Vota la próxima obra →</a>
+    </footer>
+  </main>
+</Base>
+<style>
+  #rito { min-height: 100vh; display: grid; place-content: center; text-align: center; gap: 1rem; padding: 1.5rem; }
+  #rito h1 { font-size: clamp(2.4rem, 7vw, 5rem); }
+  #rito .gancho { font-style: italic; opacity: 0.8; }
+  #rito .ui:first-child { color: var(--acento); }
+  #entrar { margin: 2rem auto 0; background: none; border: 1px solid var(--acento); color: var(--marfil);
+    padding: 1rem 2.6rem; border-radius: 3rem; cursor: pointer; transition: all 0.6s ease; }
+  #entrar:hover { background: var(--acento); color: var(--negro); }
+  .volver { opacity: 0.5; }
+  #lienzo-generativo { position: fixed; inset: 0; z-index: 5; pointer-events: none; display: none; }
+  #linea-vida { position: fixed; left: 0; top: 0; bottom: 0; width: 3px; z-index: 6; background: #f2ede422; display: none; }
+  #marcador { position: absolute; top: 0; width: 3px; height: 60px; background: var(--acento); }
+  #año-vida { position: absolute; left: 10px; transform: translateY(-50%); opacity: 0.8; }
+  #boton-cine { position: fixed; right: 1.2rem; top: 1.2rem; z-index: 7; background: #0a0a0acc; color: var(--marfil);
+    border: 1px solid #f2ede444; padding: 0.5rem 1rem; border-radius: 2rem; cursor: pointer; }
+  #vinilo { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 7; width: 120px; height: 120px; }
+  .cierre { min-height: 70vh; display: grid; place-content: center; gap: 1rem; text-align: center; padding: 4rem 1.5rem; }
+  .cierre .siguiente { display: grid; gap: 0.3rem; margin: 1.5rem 0; text-decoration: none; }
+  .cierre .siguiente strong { font-family: var(--fuente-display); font-size: 1.5rem; color: var(--acento); }
+</style>

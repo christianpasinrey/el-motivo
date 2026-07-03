@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+interface Props { escena: any; indice: number; imagen: ImageMetadata; }
+const { escena, indice, imagen } = Astro.props;
+---
+<section class={`escena tipo-${escena.tipo}`} data-indice={indice} data-tipo={escena.tipo}
+  data-timestamp={escena.timestamp} data-duracion-cine={escena.duracionCine} data-kenburns={escena.fondo.kenburns}>
+  <figure class="fondo" aria-hidden="true">
+    <Image src={imagen} alt="" widths={[768, 1280, 1920]} sizes="100vw" loading={indice < 2 ? 'eager' : 'lazy'} />
+    <span class="credito ui">{escena.fondo.credito}</span>
+  </figure>
+  <div class="contenido">
+    {escena.tipo === 'intertitulo' && <h2 class="intertitulo">{escena.texto}</h2>}
+    {escena.tipo === 'narrativa' && <p class="narrativa">{escena.texto}</p>}
+    {escena.tipo === 'cita' && <blockquote><p>«{escena.texto}»</p>{escena.atribucion && <cite class="ui">{escena.atribucion}</cite>}</blockquote>}
+    {escena.tipo === 'escucha' && <div class="escucha">
+      <button class="momento" data-segundos={escena.timestamp}>
+        <span class="ui">▶ min {Math.floor(escena.timestamp / 60)}:{String(escena.timestamp % 60).padStart(2, '0')}</span>
+      </button>
+      <p class="narrativa">{escena.texto}</p>
+    </div>}
+  </div>
+</section>
+<style>
+  .escena { position: relative; min-height: 100vh; display: grid; align-items: center; overflow: clip; }
+  .fondo { position: absolute; inset: 0; z-index: -1; }
+  .fondo img { width: 100%; height: 100%; object-fit: cover;
+    filter: grayscale(0.45) contrast(1.1) brightness(0.5) sepia(0.12); }
+  .fondo::after { content: ''; position: absolute; inset: 0;
+    background: linear-gradient(105deg, #0a0a0aee 30%, #0a0a0a66 65%, #0a0a0a22); }
+  .credito { position: absolute; right: 0.8rem; bottom: 0.8rem; font-size: 0.6rem; opacity: 0.35; z-index: 1; }
+  .contenido { max-width: 60ch; padding: 20vh 1.5rem; margin-inline: max(8vw, 1.5rem) auto; }
+  .intertitulo { font-size: clamp(1.6rem, 4vw, 2.8rem); white-space: pre-line; }
+  .narrativa { text-wrap: pretty; }
+  blockquote p { font-family: var(--fuente-display); font-size: clamp(1.5rem, 3.4vw, 2.4rem); font-style: italic; }
+  blockquote cite { display: block; margin-top: 1.2rem; opacity: 0.7; font-style: normal; }
+  .momento { background: none; border: 1px solid var(--acento); color: var(--acento);
+    padding: 0.55rem 1.1rem; cursor: pointer; margin-bottom: 1.4rem; border-radius: 2rem; }
+  .momento:hover { background: var(--acento); color: var(--negro); }
+</style>
