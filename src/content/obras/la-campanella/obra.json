@@ -1,0 +1,32 @@
+{
+  "slug": "la-campanella",
+  "orden": 4,
+  "titulo": "La Campanella",
+  "compositor": "Franz Liszt",
+  "año": 1851,
+  "lugar": "París",
+  "gancho": "La obsesión que hizo de Liszt el Paganini del piano",
+  "cartel": "cartel.jpg",
+  "youtube": { "videoId": "WOxgdOR5lN0", "videoIdAlternativos": ["EQlkWlQ9lT0"], "grabacion": "Valentina Lisitsa, piano" },
+  "paleta": { "acento": "#b87333" },
+  "vida": { "desde": 1811, "hasta": 1886 },
+  "escenas": [
+    { "tipo": "intertitulo", "texto": "París, abril de 1832.\nLiszt, 20 años, va a oír a Paganini.",
+      "fondo": { "src": "salle-peletier.jpg", "kenburns": "zoom-in", "credito": "Alexis Donnet — Dominio público, vía Wikimedia Commons" }, "duracionCine": 8 },
+    { "tipo": "narrativa", "texto": "Paganini sube al escenario: alto, cadavérico, vestido enteramente de negro. Cuando el arco toca la cuerda, produce armónicos, pizzicati con la mano izquierda y dobles cuerdas a una velocidad que ningún violinista había alcanzado antes. Entre el público corre un rumor: solo un pacto con el diablo explica lo que se está escuchando.",
+      "fondo": { "src": "paganini-delacroix.jpg", "kenburns": "pan-der", "credito": "Eugène Delacroix — Dominio público, vía Wikimedia Commons" }, "duracionCine": 15 },
+    { "tipo": "cita", "texto": "¡Qué hombre, qué violín, qué artista! Dios, cuánto sufrimiento en esas cuatro cuerdas.",
+      "atribucion": "Carta de Liszt describiendo el concierto de Paganini, París, abril de 1832.",
+      "fondo": { "src": "paganini-litografia.jpg", "kenburns": "zoom-out", "credito": "Robert Jacob Hamerton — Dominio público, vía Wikimedia Commons" }, "duracionCine": 10 },
+    { "tipo": "narrativa", "texto": "Liszt sale del concierto transformado: si Paganini ha llevado el violín a un límite sobrehumano, él hará lo mismo con el piano. Toma «La campanella», el tema del rondó final del Concierto para violín nº 2 de Paganini, y lo reescribe para teclado llevando la melodía a los agudos extremos, con saltos de más de dos octavas que la mano derecha debe resolver en una fracción de segundo: los saltos imposibles son la propia campana.",
+      "fondo": { "src": "liszt-flugel.jpg", "kenburns": "pan-izq", "credito": "Josef Danhauser — Dominio público, vía Wikimedia Commons" }, "duracionCine": 16 },
+    { "tipo": "escucha", "texto": "Escucha el tintineo agudo del registro sobreagudo del piano, que imita el sonido de una campanita, y los saltos de la mano derecha —más de dos octavas resueltos en una fracción de segundo— que Liszt exige para lograr ese efecto. La dificultad no es un adorno: es el mecanismo mismo con el que la pieza construye su sonido de campana.", "timestamp": 75,
+      "fondo": { "src": "liszt-amerling.jpg", "kenburns": "zoom-in", "credito": "Friedrich von Amerling — Dominio público, vía Wikimedia Commons" }, "duracionCine": 19 },
+    { "tipo": "narrativa", "texto": "Liszt publica una primera versión en 1838, dentro de los Estudios de ejecución trascendente sobre Paganini: tan exigente que resulta intocable incluso para pianistas profesionales. En 1851 la revisa y simplifica dentro de las Grandes études de Paganini. Esa versión domesticada, la tercera del conjunto, es la que suena hoy en las salas de concierto.",
+      "fondo": { "src": "partitura.jpg", "kenburns": "pan-der", "credito": "Liszt, Franz — Dominio público, vía Wikimedia Commons" }, "duracionCine": 14 }
+  ],
+  "cierre": {
+    "grabaciones": ["Valentina Lisitsa — grabación principal", "Georges Cziffra — la referencia histórica"],
+    "siguiente": "requiem-mozart"
+  }
+}
