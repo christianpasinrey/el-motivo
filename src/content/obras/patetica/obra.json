@@ -1,0 +1,31 @@
+{
+  "slug": "patetica",
+  "orden": 8,
+  "titulo": "Sinfonía nº 6, «Patética»",
+  "compositor": "P. I. Tchaikovsky",
+  "año": 1893,
+  "lugar": "San Petersburgo",
+  "gancho": "Nueve días después de estrenarla, estaba muerto",
+  "cartel": "cartel.jpg",
+  "youtube": { "videoId": "S33vZhLbnHk", "videoIdAlternativos": ["KvGC8hZC29U"], "grabacion": "Yevgeni Mravinsky · Filarmónica de Leningrado (Viena, 1960)" },
+  "paleta": { "acento": "#54687d" },
+  "vida": { "desde": 1840, "hasta": 1893 },
+  "escenas": [
+    { "tipo": "intertitulo", "texto": "San Petersburgo,\n28 de octubre de 1893.",
+      "fondo": { "src": "nevsky-prospekt.jpg", "kenburns": "zoom-in", "credito": "M. F. Damame-Demartrais — Dominio público, vía Wikimedia Commons" }, "duracionCine": 8 },
+    { "tipo": "narrativa", "texto": "En la Sala Grande de la Asamblea de la Nobleza, Chaikovski dirige el estreno de su Sinfonía nº 6. El público espera el final triunfal que la tradición sinfónica reclama. La obra, en cambio, se apaga en un adagio grave, casi susurrado. Al bajar la batuta, la sala queda desconcertada: no hay clímax que aplaudir, solo silencio.",
+      "fondo": { "src": "filarmonia-gran-sala.jpg", "kenburns": "pan-der", "credito": "Ingvar-fed — CC BY-SA 3.0, vía Wikimedia Commons" }, "duracionCine": 15 },
+    { "tipo": "narrativa", "texto": "Antes del estreno, Chaikovski escribe a su sobrino Vladímir Davýdov, a quien dedica la sinfonía, que la obra tiene un programa: una historia oculta tras la música. No dice cuál es. Le confiesa que ese programa «quedará un enigma para todos», y que no piensa revelarlo. Nunca lo explica en público.",
+      "fondo": { "src": "manuscrito-dedicatoria.jpg", "kenburns": "zoom-out", "credito": "P. I. Tchaikovsky — Dominio público, vía Wikimedia Commons" }, "duracionCine": 14 },
+    { "tipo": "escucha", "texto": "Escucha el final de la Sinfonía Patética: un Adagio lamentoso que abandona la tradición de cerrar en fortissimo. La cuerda grave —violonchelos, contrabajos— desciende hacia registros cada vez más bajos, cada vez más lentos, hasta que la música se apaga por completo. No hay resolución triunfal: solo una extinción, nota a nota, hasta el silencio.", "timestamp": 2049,
+      "fondo": { "src": "finale-manuscrito.png", "kenburns": "pan-izq", "credito": "Praetorius — Dominio público, vía Wikimedia Commons" }, "duracionCine": 19 },
+    { "tipo": "narrativa", "texto": "Nueve días después del estreno, el 6 de noviembre de 1893, Chaikovski está muerto. La versión oficial habla de cólera, contraída al beber agua sin hervir en plena epidemia. Pero circula otra: la de un tribunal de honor que lo habría empujado al suicidio para evitar un escándalo. El debate sigue abierto.",
+      "fondo": { "src": "tumba-tikhvin.jpg", "kenburns": "zoom-in", "credito": "A.I. — CC BY-SA 3.0, vía Wikimedia Commons" }, "duracionCine": 15 },
+    { "tipo": "narrativa", "texto": "La escribiera o no pensando en su propia muerte, la Sinfonía Patética quedó como la despedida más literal del repertorio sinfónico: una obra que termina apagándose en vez de triunfando, estrenada por su propio autor nueve días antes de morir. Desde entonces se escucha también como el réquiem que él mismo se dirigió a sí mismo.",
+      "fondo": { "src": "tumba-monumento.jpg", "kenburns": "pan-der", "credito": "Pierre André — CC BY-SA 4.0, vía Wikimedia Commons" }, "duracionCine": 15 }
+  ],
+  "cierre": {
+    "grabaciones": ["Yevgeni Mravinsky · Filarmónica de Leningrado (Viena, 1960) — grabación principal", "Herbert von Karajan · Filarmónica de Viena (Deutsche Grammophon, 1984) — la referencia de estudio"],
+    "siguiente": "shostakovich-5"
+  }
+}
