@@ -1,8 +1,37 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import Cartel from '../components/cartelera/Cartel.astro';
+
+const obras = (await getCollection('obras')).sort((a, b) => a.data.orden - b.data.orden);
+const imagenes = import.meta.glob<{ default: ImageMetadata }>('/src/assets/obras/**/*.{jpg,png,webp}');
+async function cartelDe(slug: string, archivo: string) {
+  return (await imagenes[`/src/assets/obras/${slug}/${archivo}`]()).default;
+}
+const base = import.meta.env.BASE_URL;
 ---
-<Base titulo="Cada obra esconde una historia" descripcion="Historias detrás de la música clásica.">
-  <main style="min-height:100vh;display:grid;place-items:center;">
-    <h1>El Motivo</h1>
+<Base titulo="Cada obra esconde una historia" descripcion="Experiencias cinematográficas sobre las historias reales detrás de las grandes obras de la música clásica.">
+  <header class="lema">
+    <p class="ui">El Motivo</p>
+    <h1>Cada obra esconde una historia.<br />Escúchala sabiéndola.</h1>
+  </header>
+  <main class="marquesina">
+    {await Promise.all(obras.map(async (o, i) => (
+      <Cartel slug={o.data.slug} titulo={o.data.titulo} compositor={o.data.compositor} año={o.data.año}
+        gancho={o.data.gancho} acento={o.data.paleta.acento} indice={i}
+        cartel={await cartelDe(o.data.slug, o.data.cartel)} />
+    )))}
   </main>
+  <footer class="pie">
+    <a class="ui" href={`${base}proximas/`}>¿Qué obra publicamos después? Vota →</a>
+  </footer>
 </Base>
+<style>
+  .lema { min-height: 46vh; display: grid; place-content: center; text-align: center; padding: 3rem 1.5rem 1rem; }
+  .lema .ui { color: var(--marfil); opacity: 0.65; margin-bottom: 1.2rem; animation: encender 2.2s ease both; }
+  .lema h1 { font-size: clamp(1.8rem, 4.5vw, 3.4rem); animation: encender 2.2s ease 0.5s both; }
+  .marquesina { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem;
+    max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .pie { text-align: center; padding: 0 0 4rem; } .pie a { opacity: 0.7; }
+  @keyframes encender { from { opacity: 0; } }
+</style>
