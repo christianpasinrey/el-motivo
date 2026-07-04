@@ -1,8 +1,9 @@
 ---
 import '../styles/global.css';
-interface Props { titulo: string; descripcion: string; acento?: string; ogImage?: string; }
-const { titulo, descripcion, acento, ogImage } = Astro.props;
+interface Props { titulo: string; descripcion: string; acento?: string; ogImage?: string; ogTipo?: 'website' | 'article'; }
+const { titulo, descripcion, acento, ogImage, ogTipo } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
 <html lang="es">
@@ -11,9 +12,13 @@ const base = import.meta.env.BASE_URL;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{titulo} — El Motivo</title>
     <meta name="description" content={descripcion} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content={ogTipo ?? 'website'} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={`${titulo} — El Motivo`} />
     <meta property="og:description" content={descripcion} />
     {ogImage && <meta property="og:image" content={new URL(ogImage, Astro.site)} />}
+    {ogImage && <meta name="twitter:card" content="summary_large_image" />}
     <link rel="icon" href={`${base}favicon.svg`} />
   </head>
   <body style={acento ? `--acento:${acento}` : undefined}>

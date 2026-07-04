@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Cartel from '../components/cartelera/Cartel.astro';
 
@@ -9,8 +10,10 @@ async function cartelDe(slug: string, archivo: string) {
   return (await imagenes[`/src/assets/obras/${slug}/${archivo}`]()).default;
 }
 const base = import.meta.env.BASE_URL;
+const primera = obras[0];
+const ogImage = (await getImage({ src: await cartelDe(primera.data.slug, primera.data.cartel), width: 1200 })).src;
 ---
-<Base titulo="Cada obra esconde una historia" descripcion="Experiencias cinematográficas sobre las historias reales detrás de las grandes obras de la música clásica.">
+<Base titulo="Cada obra esconde una historia" descripcion="Experiencias cinematográficas sobre las historias reales detrás de las grandes obras de la música clásica." ogImage={ogImage}>
   <header class="lema">
     <p class="ui">El Motivo</p>
     <h1>Cada obra esconde una historia.<br />Escúchala sabiéndola.</h1>

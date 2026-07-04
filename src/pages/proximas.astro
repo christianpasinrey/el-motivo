@@ -1,4 +1,6 @@
 ---
+import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import candidatas from '../../data/candidatas.json';
 const REPO = 'https://github.com/christianpasinrey/el-motivo';
@@ -8,8 +10,13 @@ function urlVoto(obra: string, compositor: string) {
   const cuerpo = encodeURIComponent('Quiero que la próxima experiencia sea esta obra. (Puedes añadir por qué, o proponer otra.)');
   return `${REPO}/issues/new?title=${titulo}&body=${cuerpo}`;
 }
+const obras = (await getCollection('obras')).sort((a, b) => a.data.orden - b.data.orden);
+const primera = obras[0];
+const imagenes = import.meta.glob<{ default: ImageMetadata }>('/src/assets/obras/**/*.{jpg,png,webp}');
+const cartelPrimera = (await imagenes[`/src/assets/obras/${primera.data.slug}/${primera.data.cartel}`]()).default;
+const ogImage = (await getImage({ src: cartelPrimera, width: 1200 })).src;
 ---
-<Base titulo="Próximas obras" descripcion="Vota qué historia contamos después.">
+<Base titulo="Próximas obras" descripcion="Vota qué historia contamos después." ogImage={ogImage}>
   <main class="proximas">
     <a class="ui" href={base}>← Cartelera</a>
     <h1>¿Qué historia contamos después?</h1>

@@ -1,5 +1,6 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
+import { getImage } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import Escena from '../../components/escena/Escena.astro';
 
@@ -15,13 +16,14 @@ async function img(archivo: string) {
 }
 const siguiente = await getEntry('obras', obra.cierre.siguiente);
 const base = import.meta.env.BASE_URL;
+const ogImage = (await getImage({ src: await img(obra.cartel), width: 1200 })).src;
 const ldjson = JSON.stringify({
   '@context': 'https://schema.org', '@type': 'Article',
   headline: `${obra.titulo} — ${obra.gancho}`, inLanguage: 'es',
   about: { '@type': 'MusicComposition', name: obra.titulo, composer: { '@type': 'Person', name: obra.compositor } },
 });
 ---
-<Base titulo={`${obra.titulo} · ${obra.compositor}`} descripcion={obra.gancho} acento={obra.paleta.acento}>
+<Base titulo={`${obra.titulo} · ${obra.compositor}`} descripcion={obra.gancho} acento={obra.paleta.acento} ogImage={ogImage} ogTipo="article">
   <script type="application/ld+json" set:html={ldjson} />
   <main id="experiencia" data-acento={obra.paleta.acento} data-video-id={obra.youtube.videoId}
     data-alternativos={obra.youtube.videoIdAlternativos.join(',')}
