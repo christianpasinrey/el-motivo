@@ -1,3 +1,5 @@
+import { escuchar } from '../lib/bus';
+
 export function initGenerativo(): void {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const pocaMemoria = 'deviceMemory' in navigator && (navigator as any).deviceMemory < 4;
@@ -45,5 +47,5 @@ export function initGenerativo(): void {
     g.addColorStop(0, 'transparent'); g.addColorStop(1, '#0a0a0aa8');
     ctx.fillStyle = g; ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
-  requestAnimationFrame(pintar);
+  escuchar('experiencia:entrar', () => requestAnimationFrame(pintar));
 }
