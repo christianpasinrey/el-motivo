@@ -26,4 +26,8 @@ describe('contenido de obras', () => {
   it.each(obras)('$slug: toda escena escucha tiene timestamp > 0', ({ data }) => {
     for (const e of data.escenas.filter((e: any) => e.tipo === 'escucha')) expect(e.timestamp).toBeGreaterThan(0);
   });
+  it.each(obras)('$slug: cartelCredito existe y tiene contenido', ({ data }) => {
+    expect(typeof data.cartelCredito).toBe('string');
+    expect(data.cartelCredito.length).toBeGreaterThanOrEqual(3);
+  });
 });

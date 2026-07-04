@@ -1,4 +1,7 @@
 import { test, expect } from '@playwright/test';
+import config from '../playwright.config';
+
+const baseURL = (config.use?.baseURL as string) ?? 'http://localhost:4321/el-motivo/';
 
 test('cartelera muestra las obras y navega a una', async ({ page }) => {
   await page.goto('./');
@@ -20,7 +23,7 @@ test('rito de entrada revela la experiencia', async ({ page }) => {
 test('la narrativa es legible sin JS', async ({ browser }) => {
   const ctx = await browser.newContext({ javaScriptEnabled: false });
   const page = await ctx.newPage();
-  await page.goto('http://localhost:4321/el-motivo/obra/shostakovich-5/');
+  await page.goto(new URL('obra/shostakovich-5/', baseURL).toString());
   await expect(page.locator('.narrativa').first()).toBeVisible();
   await ctx.close();
 });

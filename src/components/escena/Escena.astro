@@ -1,12 +1,20 @@
 ---
-import { Image } from 'astro:assets';
-interface Props { escena: any; indice: number; imagen: ImageMetadata; }
-const { escena, indice, imagen } = Astro.props;
+import { Image, getImage } from 'astro:assets';
+interface Props { escena: any; indice: number; imagen: ImageMetadata; imagenMovil?: ImageMetadata; }
+const { escena, indice, imagen, imagenMovil } = Astro.props;
+const movil = imagenMovil
+  ? await getImage({ src: imagenMovil, widths: [768, 1080], sizes: '100vw', format: imagenMovil.format })
+  : null;
 ---
 <section class={`escena tipo-${escena.tipo}`} data-indice={indice} data-tipo={escena.tipo}
   data-timestamp={escena.timestamp} data-duracion-cine={escena.duracionCine} data-kenburns={escena.fondo.kenburns}>
   <figure class="fondo" aria-hidden="true">
-    <Image src={imagen} alt="" widths={[768, 1280, 1920]} sizes="100vw" loading={indice < 2 ? 'eager' : 'lazy'} />
+    {movil
+      ? <picture>
+          <source media="(orientation: portrait)" srcset={movil.srcSet.attribute} sizes="100vw" />
+          <Image src={imagen} alt="" widths={[768, 1280, 1920]} sizes="100vw" loading={indice < 2 ? 'eager' : 'lazy'} />
+        </picture>
+      : <Image src={imagen} alt="" widths={[768, 1280, 1920]} sizes="100vw" loading={indice < 2 ? 'eager' : 'lazy'} />}
     <span class="credito ui">{escena.fondo.credito}</span>
   </figure>
   <div class="contenido">

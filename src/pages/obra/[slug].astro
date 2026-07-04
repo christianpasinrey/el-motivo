@@ -21,7 +21,7 @@ const ldjson = JSON.stringify({
   '@context': 'https://schema.org', '@type': 'Article',
   headline: `${obra.titulo} — ${obra.gancho}`, inLanguage: 'es',
   about: { '@type': 'MusicComposition', name: obra.titulo, composer: { '@type': 'Person', name: obra.compositor } },
-});
+}).replace(/</g, '\\u003c');
 ---
 <Base titulo={`${obra.titulo} · ${obra.compositor}`} descripcion={obra.gancho} acento={obra.paleta.acento} ogImage={ogImage} ogTipo="article">
   <script type="application/ld+json" set:html={ldjson} />
@@ -43,7 +43,8 @@ const ldjson = JSON.stringify({
     <button id="vinilo" hidden aria-label="Reproducir o pausar la música"></button>
 
     {await Promise.all(obra.escenas.map(async (e, i) => (
-      <Escena escena={e} indice={i} imagen={await img(e.fondo.src)} />
+      <Escena escena={e} indice={i} imagen={await img(e.fondo.src)}
+        imagenMovil={e.fondo.fondoMovil ? await img(e.fondo.fondoMovil) : undefined} />
     )))}
 
     <footer class="cierre">
@@ -55,6 +56,7 @@ const ldjson = JSON.stringify({
         <strong>{siguiente.data.titulo} — {siguiente.data.compositor}</strong>
       </a>}
       <a class="ui" href={`${base}proximas/`}>Vota la próxima obra →</a>
+      {obra.cartelCredito && <p class="ui credito-cartel">Cartel: {obra.cartelCredito}</p>}
     </footer>
   </main>
 </Base>
@@ -73,6 +75,7 @@ const ldjson = JSON.stringify({
   #año-vida { position: absolute; left: 10px; transform: translateY(-50%); opacity: 0.8; }
   #boton-cine { position: fixed; right: 1.2rem; top: 1.2rem; z-index: 7; background: #0a0a0acc; color: var(--marfil);
     border: 1px solid #f2ede444; padding: 0.5rem 1rem; border-radius: 2rem; cursor: pointer; }
+  @media (prefers-reduced-motion: reduce) { #boton-cine { display: none; } }
   #vinilo { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 7; width: 120px; height: 120px;
     border-radius: 50%; overflow: hidden; border: 2px solid var(--acento); background: none; padding: 0; cursor: pointer;
     box-shadow: 0 0 30px #000c; transition: transform 0.6s ease; }
@@ -85,6 +88,7 @@ const ldjson = JSON.stringify({
   .cierre { min-height: 70vh; display: grid; place-content: center; gap: 1rem; text-align: center; padding: 4rem 1.5rem; }
   .cierre .siguiente { display: grid; gap: 0.3rem; margin: 1.5rem 0; text-decoration: none; }
   .cierre .siguiente strong { font-family: var(--fuente-display); font-size: 1.5rem; color: var(--acento-vivo); }
+  .credito-cartel { font-size: 0.6rem; opacity: 0.35; }
 </style>
 <style is:global>
   body.modo-cine #boton-cine { opacity: 0.25; }

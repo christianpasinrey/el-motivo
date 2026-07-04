@@ -27,6 +27,7 @@ export const ObraSchema = z.object({
   lugar: z.string(),
   gancho: z.string().max(90),
   cartel: z.string().regex(/^[\w-]+\.(jpg|png|webp)$/),
+  cartelCredito: z.string().optional(),
   youtube: z.object({
     videoId: z.string().length(11),
     videoIdAlternativos: z.array(z.string().length(11)).default([]),

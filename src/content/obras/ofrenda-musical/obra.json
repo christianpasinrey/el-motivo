@@ -7,6 +7,7 @@
   "lugar": "Potsdam",
   "gancho": "La encerrona de un rey al viejo Bach",
   "cartel": "cartel.jpg",
+  "cartelCredito": "Elias Gottlob Haussmann — Dominio público, vía Wikimedia Commons",
   "youtube": { "videoId": "FLuQftz72cc", "videoIdAlternativos": ["tfMQ-AYiuJw"], "grabacion": "Yehudi Menuhin · Bach Festival Ensemble (EMI, 1960)" },
   "paleta": { "acento": "#2e4a62" },
   "vida": { "desde": 1685, "hasta": 1750 },
