@@ -23,10 +23,17 @@ export function initDirector(): void {
 
   document.getElementById('entrar')!.addEventListener('click', () => {
     emitir('experiencia:entrar');
-    gsap.to(rito, { autoAlpha: 0, duration: 1.2, onComplete: () => (rito.style.display = 'none') });
+    gsap.to(rito, {
+      autoAlpha: 0, duration: 1.2,
+      onComplete: () => {
+        // Colapsar el rito cambia el layout (~100vh): recalcular triggers ANTES de posicionar
+        rito.style.display = 'none';
+        ScrollTrigger.refresh();
+        window.scrollTo({ top: escenas[0].offsetTop, behavior: 'instant' as ScrollBehavior });
+      },
+    });
     for (const id of ['lienzo-generativo', 'linea-vida', 'vinilo']) document.getElementById(id)!.style.display = 'block';
     botonCine.hidden = false;
-    gsap.to(window, { scrollTo: escenas[0], duration: 1.6, ease: 'power2.inOut' });
   });
 
   for (const [i, escena] of escenas.entries()) {
