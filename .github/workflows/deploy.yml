@@ -2,16 +2,19 @@ name: Deploy
 on:
   push: { branches: [main] }
   workflow_dispatch:
-permissions: { contents: read, pages: write, id-token: write }
+permissions: { contents: read }
 concurrency: { group: pages, cancel-in-progress: true }
 jobs:
   test-build:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
-      - run: npm ci
+      # npm install (not ci): lockfile generated on Windows omits linux-only
+      # transitive optional deps (@emnapi/*), a known npm cross-platform gap
+      - run: npm install --no-audit --no-fund
       - run: npm test
       - run: npm run build
       - run: npx playwright install --with-deps chromium
@@ -20,7 +23,9 @@ jobs:
         with: { path: dist }
   deploy:
     needs: test-build
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions: { pages: write, id-token: write }
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
