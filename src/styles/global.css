@@ -7,9 +7,16 @@
   --negro: #0a0a0a;
   --marfil: #f2ede4;
   --acento: #f2ede4; /* neutro; cada obra lo sobrescribe */
+  --acento-vivo: var(--acento); /* tinte accesible para TEXTO; --acento sigue intacto para bordes/fondos */
   --fuente-display: 'Fraunces Variable', serif;
   --fuente-texto: 'Literata Variable', serif;
   --fuente-ui: 'Archivo Narrow', sans-serif;
+}
+/* --acento se sobrescribe por obra vía style inline en <body> (Base.astro).
+   --acento-vivo debe definirse en `body` (no en :root/html) para que el color-mix
+   resuelva el --acento de ESE body, no el neutro heredado del :root. */
+@supports (color: color-mix(in oklab, red, white)) {
+  body { --acento-vivo: color-mix(in oklab, var(--acento) 60%, var(--marfil)); }
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { background: var(--negro); color: var(--marfil); scroll-behavior: smooth; }

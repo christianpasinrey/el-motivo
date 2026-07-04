@@ -16,11 +16,16 @@ const base = import.meta.env.BASE_URL;
 <style>
   .cartel { position: relative; display: block; aspect-ratio: 2/3; overflow: hidden; text-decoration: none;
     opacity: 0; animation: aparecer 1.4s ease var(--retardo) forwards; }
+  /* --acento se define inline por tarjeta (style="--acento:...") en este mismo <a>, no en <body>;
+     por eso el color-mix de --acento-vivo debe recalcularse aquí para heredar el acento de ESTA tarjeta. */
+  @supports (color: color-mix(in oklab, red, white)) {
+    .cartel { --acento-vivo: color-mix(in oklab, var(--acento) 60%, var(--marfil)); }
+  }
   .cartel img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.35) contrast(1.08) brightness(0.72);
     transition: transform 6s ease, filter 1.2s ease; }
   .velo { position: absolute; inset: 0; background: linear-gradient(15deg, #0a0a0af2 22%, #0a0a0a55 60%, #0a0a0a11); }
   .ficha { position: absolute; inset: auto 0 0 0; padding: 1.4rem; }
-  .ficha .ui { color: var(--acento); }
+  .ficha .ui { color: var(--acento-vivo); }
   .ficha h2 { font-size: 1.6rem; margin: 0.35rem 0; }
   .gancho { font-size: 0.95rem; opacity: 0; transform: translateY(12px); transition: all 1.2s ease; font-style: italic; }
   .cartel:hover img, .cartel:focus-visible img { transform: scale(1.05); filter: grayscale(0.1) contrast(1.08) brightness(0.85); }
